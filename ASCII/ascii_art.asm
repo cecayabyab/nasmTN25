@@ -1,4 +1,7 @@
 section .data
+
+;                                              ======================== STRING SECTION =======================
+
     l1 db "                  _  ,.~~~.", 10
     l1_len equ $ - l1
 
@@ -136,12 +139,16 @@ section .data
 
     l46 db "                                     `**''", 10
     l46_len equ $ - l46
+
+;                                              ======================== STRING SECTION =======================
+
 section .text
     global _start
 
 
 _start:
 
+;                                              ======================= DISPLAY SECTION ======================
     mov ecx, l1
     mov edx, l1_len
     call printString
@@ -326,6 +333,11 @@ _start:
     mov edx, l46_len
     call printString
 
+;                                               ======================= DISPLAY SECTION ======================
+
+
+
+;                                                ====================== FUNCTION SECTION ====================
 call ExitProgram
 
 printString:
@@ -341,3 +353,5 @@ ExitProgram:
     mov eax, 1
     mov ebx, 0
     int 0x80
+
+;                                                ====================== FUNCTION SECTION ====================
